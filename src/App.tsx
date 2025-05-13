@@ -15,8 +15,8 @@ function App() {
   // welcome toast
   const showWelcomeToast = useRef(true); 
 
-  const [mangaData, updateMangaData]: useState<any>  = useState(null); 
-  const [errorState, updateErrorState]: useState<any> = useState(false);
+  const [mangaData, updateMangaData]: any  = useState(null); 
+  const [errorState, updateErrorState]: any = useState(false);
 
   useEffect(() => {
     getMangaList(updateErrorState).then(res => {
@@ -50,7 +50,7 @@ function App() {
       content = (
         <>
             {
-            mangaData.data.map((manga, index) => {
+            mangaData.data.map((manga: any, _) => {
               return <MangaCard 
             title={manga.title} 
             author={manga.authors[0].name}

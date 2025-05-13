@@ -1,10 +1,10 @@
 import { Card, 
-    CardBody, CardFooter, Image, Badge, Tooltip, Button } from '@heroui/react'
+    CardBody, CardFooter, Image, Tooltip, Button } from '@heroui/react'
 
 import { Icon } from "@iconify/react";
 
 
-export default function MangaCard(props) {
+export default function MangaCard(props: any) {
   return (
     <Card className="overflow-hidden m-4">
           <CardBody className="p-0 overflow-visible">
