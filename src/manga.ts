@@ -6,7 +6,7 @@ export async function getMangaList(errorState) {
   try {
     let res = await axios.get("https://api.jikan.moe/v4/manga");
     response = res.data;
-  } catch (error) {
+  } catch (error: any) {
     errorState(true);
     return error.message
   }

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { 
-    addToast, Button, Input, 
+    addToast, Input, 
     Navbar, NavbarBrand, 
     NavbarContent, Spinner
 } from '@heroui/react'
@@ -15,21 +15,8 @@ function App() {
   // welcome toast
   const showWelcomeToast = useRef(true); 
 
-  useEffect(() => {
-    if (showWelcomeToast.current) {
-      addToast({
-        title: "Welcome back!", 
-        variant: 'solid',
-        color: 'primary', 
-        timeout: 2000 
-      })
-      showWelcomeToast.current = false;
-    }
-  }, [])
-
-
-  const [mangaData, updateMangaData] = useState(null); 
-  const [errorState, updateErrorState] = useState(false);
+  const [mangaData, updateMangaData]: useState<any>  = useState(null); 
+  const [errorState, updateErrorState]: useState<any> = useState(false);
 
   useEffect(() => {
     getMangaList(updateErrorState).then(res => {
@@ -41,6 +28,18 @@ function App() {
   let content; 
 
   if (!errorState){
+     useEffect(() => {
+      if (showWelcomeToast.current) {
+        addToast({
+          title: "Welcome back!", 
+          variant: 'solid',
+          color: 'primary', 
+          timeout: 2000 
+        })
+        showWelcomeToast.current = false;
+      }
+      }, [])
+
     if (!mangaData?.data?.[0]?.title) {
       content = (
       <div className="fixed inset-0 flex items-center justify-center">
@@ -65,6 +64,18 @@ function App() {
         )
     }
   } else {
+       useEffect(() => {
+        if (showWelcomeToast.current) {
+          addToast({
+            title: "You are currently offline!", 
+            variant: 'solid',
+            color: 'warning', 
+            timeout: 2000 
+          })
+          showWelcomeToast.current = false;
+        }
+      }, [])
+
     content = "You are currently offline!"
   }
 
