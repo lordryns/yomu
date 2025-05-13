@@ -50,7 +50,7 @@ function App() {
       content = (
         <>
             {
-            mangaData.data.map((manga: any, _) => {
+            mangaData.data.map((manga: any, _: any) => {
               return <MangaCard 
             title={manga.title} 
             author={manga.authors[0].name}
