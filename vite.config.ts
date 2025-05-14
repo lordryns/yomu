@@ -12,7 +12,7 @@ export default defineConfig({
       includeAssets: ['favicon.svg', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
         name: 'Yomu',
-        short_name: 'QuickNotes',
+        short_name: 'yomu',
         description: 'Discover, Search and Bookmark Manga with ease.',
         theme_color: '#fff',
         background_color: '#fff',
