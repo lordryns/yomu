@@ -118,7 +118,7 @@ function App() {
         content = (
           <>
             {
-              parsedMangaList.map((manga: Manga, _: any) => {
+              parsedMangaList.slice().reverse().map((manga: Manga, _: any) => {
                 return <MangaCard
                   title={manga.title} 
                   author={manga.author}
