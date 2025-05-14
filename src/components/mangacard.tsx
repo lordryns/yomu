@@ -33,10 +33,17 @@ export default function MangaCard(props: any) {
           <CardFooter className="pt-0 justify-end">
             <Tooltip content="Add to collection">
               <Button onClick={() => {
-                  props.onBookmark();
+                if (!props.offline){
+              props.onBookmark();
+            } else {
+
+            }
           }} isIconOnly variant="light" radius="full" size="sm">
-                <Icon className="text-blue-500" icon="material-symbols:bookmark-outline" width={18} />
-              </Button>
+                {!props.offline ?    <Icon className="text-blue-500" icon="material-symbols:bookmark-outline" width={18} />
+           :          <Icon className="text-blue-500" icon="material-symbols:delete-outline" width={18} />
+ 
+            }
+            </Button>
             </Tooltip>
           </CardFooter>
         </Card>

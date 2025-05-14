@@ -85,7 +85,8 @@ function App() {
             title={manga.title} 
             author={manga.authors[0].name}
             image={manga.images.jpg.image_url}
-            rating={manga.score} 
+            rating={manga.score}
+            offline={false}
             onBookmark = {() => {
                   offlineMangaList.push({
                     title: manga.title,
@@ -123,7 +124,8 @@ function App() {
                   title={manga.title} 
                   author={manga.author}
                   image={manga.image}
-                  rating={manga.rating} />
+                  rating={manga.rating}
+                  offline={true}/>
 
             })
           }
