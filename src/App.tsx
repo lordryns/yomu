@@ -11,6 +11,15 @@ import MangaCard from './components/mangacard.tsx'
 import { getMangaList } from './manga.ts'
 
 
+interface Manga {
+  title: string, 
+  author: string, 
+  image: string, 
+  rating: float
+}
+
+const offlineMangaList: Manga = []
+
 function App() {
   // welcome toast
   const showWelcomeToast = useRef(true); 
@@ -72,7 +81,25 @@ function App() {
             title={manga.title} 
             author={manga.authors[0].name}
             image={manga.images.jpg.image_url}
-            rating={manga.score}
+            rating={manga.score} 
+            onBookmark = {() => {
+                  offlineMangaList.push({
+                    title: manga.title,
+                    author: manga.authors[0].name,
+                    image: manga.images.jpg.image_url,
+                    rating: manga.score
+
+                  })
+
+                  localStorage.setItem("bookmarks", JSON.stringify(offlineMangaList))
+                  addToast({
+                    title: "Bookmarked!", 
+                    description: `${manga.title} bookmarked successfully!`, 
+                    timeout: 3000, 
+                    shouldShowTimoutProgress: true,
+                    color: 'success'
+                  })
+                }}
           />
 
             })
@@ -81,8 +108,34 @@ function App() {
         )
     }
   } else {
-      
-    content = "You are currently offline!"
+      const storedBookmarks = localStorage.getItem("bookmarks");
+      if (storedBookmarks){
+      const parsedMangaList : Manga = JSON.parse(storedBookmarks);
+        content = (
+          <>
+            {
+              parsedMangaList.map((manga: Manga, _: any) => {
+                return <MangaCard
+                  title={manga.title} 
+                  author={manga.author}
+                  image={manga.image}
+                  rating={manga.rating} />
+
+            })
+          }
+          </>
+          )
+    } else {
+      content = (
+          <>
+            <div className="fixed inset-0 flex items-center justify-center">
+              <p>Nothing to see here...</p>
+            </div> 
+
+          </>
+      )
+    }
+
   }
 
   

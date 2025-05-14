@@ -5,6 +5,7 @@ import { Icon } from "@iconify/react";
 
 
 export default function MangaCard(props: any) {
+
   return (
     <Card className="overflow-hidden m-4">
           <CardBody className="p-0 overflow-visible">
@@ -31,7 +32,9 @@ export default function MangaCard(props: any) {
           </CardBody>
           <CardFooter className="pt-0 justify-end">
             <Tooltip content="Add to collection">
-              <Button isIconOnly variant="light" radius="full" size="sm">
+              <Button onClick={() => {
+                  props.onBookmark();
+          }} isIconOnly variant="light" radius="full" size="sm">
                 <Icon className="text-blue-500" icon="material-symbols:bookmark-outline" width={18} />
               </Button>
             </Tooltip>
