@@ -110,11 +110,11 @@ function App() {
   } else {
       const storedBookmarks = localStorage.getItem("bookmarks");
       if (storedBookmarks){
-      const parsedMangaList : Manga = JSON.parse(storedBookmarks);
+      const parsedMangaList : any = JSON.parse(storedBookmarks);
         content = (
           <>
             {
-              parsedMangaList.map((manga: any, _: any) => {
+              parsedMangaList.map((manga: Manga, _: any) => {
                 return <MangaCard
                   title={manga.title} 
                   author={manga.author}
