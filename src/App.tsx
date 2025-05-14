@@ -114,7 +114,7 @@ function App() {
         content = (
           <>
             {
-              parsedMangaList.map((manga: Manga, _: any) => {
+              parsedMangaList.map((manga: any, _: any) => {
                 return <MangaCard
                   title={manga.title} 
                   author={manga.author}
