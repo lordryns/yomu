@@ -118,7 +118,7 @@ function App() {
       const parsedMangaList : any = JSON.parse(storedBookmarks);
         content = (
           <>
-            <div class="w-full flex justify-end p-3">
+            <div className="w-full flex justify-end p-3">
               <Button color="danger" onClick={() => {
                   localStorage.clear();
                   offlineMangaList = []; 
