@@ -13,7 +13,7 @@ export default defineConfig({
       manifest: {
         name: 'Yomu',
         short_name: 'Yomu',
-        description: 'Discover, search and bookmark Manga with ease.',
+        description: 'Discover, search, track and bookmark Manga with ease.',
         theme_color: '#fff',
         background_color: '#fff',
         display: 'standalone',
