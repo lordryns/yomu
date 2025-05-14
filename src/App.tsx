@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { 
-    addToast, Input, 
+    addToast, Input, Button,
     Navbar, NavbarBrand, 
     NavbarContent, Spinner
 } from '@heroui/react'
@@ -118,6 +118,13 @@ function App() {
       const parsedMangaList : any = JSON.parse(storedBookmarks);
         content = (
           <>
+            <div class="w-full flex justify-end p-3">
+              <Button color="danger" onClick={() => {
+                  localStorage.clear();
+                  offlineMangaList = []; 
+                  window.location.reload();
+            }}>Remove all</Button>
+          </div>
             {
               parsedMangaList.slice().reverse().map((manga: Manga, _: any) => {
                 return <MangaCard
