@@ -18,7 +18,7 @@ interface Manga {
   rating: any
 }
 
-let offlineMangaList = []
+let offlineMangaList: any = []
 
 if (localStorage.getItem("bookmarks")){
   offlineMangaList = JSON.parse(localStorage.getItem("bookmarks"));
