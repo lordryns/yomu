@@ -10,6 +10,7 @@ import MangaCard from './components/mangacard.tsx'
 
 import { getMangaList } from './manga.ts'
 
+localStorage.clear();
 
 interface Manga {
   title: string, 
