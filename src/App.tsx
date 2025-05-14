@@ -19,27 +19,44 @@ function App() {
   const [errorState, updateErrorState]: any = useState(false);
 
   useEffect(() => {
-    getMangaList(updateErrorState).then(res => {
-      updateMangaData(res);
+    getMangaList().then(res => {
+      updateMangaData(res.data);
+
+      if (showWelcomeToast.current){
+          if (res.success){
+            addToast({
+              title: "Welcome back!", 
+              color: 'primary',
+              variant: 'solid', 
+              timeout: 2000
+            })
+          } else {
+            addToast({
+              title: "You are currently offline!",
+              variant: 'solid',
+              color: 'warning',
+              timeout: 2000
+            })
+          }
+      showWelcomeToast.current = false;
+
+
+    } 
+
+      console.log("Error state from func: ", res.success)
+      updateErrorState(!res.success);
     })
-  }, [])
+
+      }, [])
+
+   
 
 
   let content; 
 
   if (!errorState){
-     useEffect(() => {
-      if (showWelcomeToast.current) {
-        addToast({
-          title: "Welcome back!", 
-          variant: 'solid',
-          color: 'primary', 
-          timeout: 2000 
-        })
-        showWelcomeToast.current = false;
-      }
-      }, [])
-
+    
+  
     if (!mangaData?.data?.[0]?.title) {
       content = (
       <div className="fixed inset-0 flex items-center justify-center">
@@ -64,18 +81,7 @@ function App() {
         )
     }
   } else {
-       useEffect(() => {
-        if (showWelcomeToast.current) {
-          addToast({
-            title: "You are currently offline!", 
-            variant: 'solid',
-            color: 'warning', 
-            timeout: 2000 
-          })
-          showWelcomeToast.current = false;
-        }
-      }, [])
-
+      
     content = "You are currently offline!"
   }
 
