@@ -15,10 +15,10 @@ interface Manga {
   title: string, 
   author: string, 
   image: string, 
-  rating: float
+  rating: any
 }
 
-const offlineMangaList: Manga = []
+const offlineMangaList: any = []
 
 function App() {
   // welcome toast
@@ -96,7 +96,7 @@ function App() {
                     title: "Bookmarked!", 
                     description: `${manga.title} bookmarked successfully!`, 
                     timeout: 3000, 
-                    shouldShowTimoutProgress: true,
+                    shouldShowTimeoutProgress: true,
                     color: 'success'
                   })
                 }}
