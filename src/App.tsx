@@ -32,6 +32,8 @@ function App() {
   const [errorState, updateErrorState]: any = useState(false);
 
   const [search, updateSearch]: any = useState("");
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
       getMangaList().then(res => {
         updateMangaData(res.data);
@@ -68,7 +70,7 @@ function App() {
 
   if (!errorState){
   
-    if (!mangaData?.data) {
+    if (loading || !mangaData?.data) {
       content = (
       <div className="fixed inset-0 flex items-center justify-center">
         <Spinner />
@@ -163,6 +165,7 @@ function App() {
             <form onSubmit={
               (e) => {
                 e.preventDefault();
+                setLoading(true);
                 searchManga(search).then(res => {
 
                   if (Array.isArray(res.data.data)) {
@@ -172,8 +175,8 @@ function App() {
                       color: 'success'
                     })
                     updateMangaData({data: res.data.data});
-
                   }
+                  setLoading(false);
                 })
               }
             }>
