@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { 
     addToast, Input, Button,
     Navbar, NavbarBrand, 
-    NavbarContent, Spinner, Alert
+    NavbarContent, Spinner
 } from '@heroui/react'
 import {Icon} from "@iconify/react";
 
@@ -156,8 +156,7 @@ function App() {
   
   return (
       <>
-      <Alert color="primary"><InstallPrompt />
-</Alert>
+      <InstallPrompt />
       <div className="min-h-screen">
       <Navbar maxWidth="xl">
         <NavbarBrand>

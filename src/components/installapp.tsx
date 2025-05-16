@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-
+import { Alert } from '@heroui/react'
 declare global {
   interface WindowEventMap {
     beforeinstallprompt: BeforeInstallPromptEvent
@@ -39,7 +39,7 @@ const InstallPrompt = () => {
 
   return (
     <button onClick={handleInstallClick}>
-      Install the App to enable offline mode and enjoy everything Yomu has to offer.
+      <Alert color="primary">Install the App to enable offline mode and enjoy everything Yomu has to offer.</Alert>
     </button>
   )
 }
