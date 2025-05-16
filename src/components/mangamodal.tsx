@@ -13,7 +13,7 @@ export default function MangaModal(props: any) {
                   <Image 
                     src={props.image}                 
                     className="w-full object-cover h-[200px]"
-                    altName="Manga image"
+                    alt="Manga image"
                     removeWrapper
                    />
 
@@ -22,9 +22,9 @@ export default function MangaModal(props: any) {
                   {props.synopsis}
                   <b>Rating: {props.rating}</b>
                   <b>Status: {props.status}</b>
-                  <b>Genres: {props.genres.map(genre => genre.name).join(', ')}</b>
+                  <b>Genres: {props.genres.map(genre: any => genre.name).join(', ')}</b>
                   <b>Author: {props.author}</b>
-                  <b>Themes: {props.themes.map(theme => theme.name).join(', ')}</b>
+                  <b>Themes: {props.themes.map(theme: any => theme.name).join(', ')}</b>
                 </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>

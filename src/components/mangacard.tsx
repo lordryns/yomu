@@ -33,7 +33,7 @@ export default function MangaCard(props: any) {
             </div>
           </CardBody>
           <CardFooter className="pt-0 justify-between">
-          {props.offline ? "" : <Button onPress={onOpen} isIconOnly variant="light" radius="full" size="sm" width={22}>
+          {props.offline ? "" : <Button onPress={onOpen} isIconOnly variant="light" radius="full" size="sm">
           <Icon className="text-blue-500" icon="material-symbols:expand-content" width={22} />
             </Button>}
           <Tooltip content="Add to collection">
