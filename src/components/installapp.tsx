@@ -39,7 +39,7 @@ const InstallPrompt = () => {
 
   return (
     <button onClick={handleInstallClick}>
-      Install App to enable offline mode and enjoy everything Yomu has to offer.
+      Install the App to enable offline mode and enjoy everything Yomu has to offer.
     </button>
   )
 }
