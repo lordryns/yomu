@@ -84,9 +84,13 @@ function App() {
             mangaData.data.map((manga: any, _: any) => {
               return <MangaCard 
             title={manga.title} 
+            synopsis={manga.synopsis}
             author={manga?.authors?.[0]?.name ? manga.authors[0].name : "Unknown"}
             image={manga.images.jpg.image_url}
             rating={manga.score}
+            status={manga.status}
+            genres={manga.genres}
+            themes={manga.themes}
             offline={false}
             onBookmark = {() => {
                   offlineMangaList.push({

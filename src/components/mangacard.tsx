@@ -1,12 +1,14 @@
-import { Card, 
-    CardBody, CardFooter, Image, Tooltip, Button } from '@heroui/react'
+import { Card, CardBody, CardFooter, Image, Tooltip, Button, useDisclosure } from '@heroui/react'
 
 import { Icon } from "@iconify/react";
 
+import MangaModal from './mangamodal.tsx';
 
 export default function MangaCard(props: any) {
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
   return (
+    <>
     <Card className="overflow-hidden m-4">
           <CardBody className="p-0 overflow-visible">
             <div className="relative">
@@ -30,8 +32,11 @@ export default function MangaCard(props: any) {
               </div>
             </div>
           </CardBody>
-          <CardFooter className="pt-0 justify-end">
-            <Tooltip content="Add to collection">
+          <CardFooter className="pt-0 justify-between">
+          {props.offline ? "" : <Button onPress={onOpen} isIconOnly variant="light" radius="full" size="sm" width={22}>
+          <Icon className="text-blue-500" icon="material-symbols:expand-content" width={22} />
+            </Button>}
+          <Tooltip content="Add to collection">
               <Button onClick={() => {
                 if (!props.offline){
               props.onBookmark();
@@ -48,5 +53,11 @@ export default function MangaCard(props: any) {
           </CardFooter>
         </Card>
 
+      <MangaModal isOpen={isOpen} onOpenChange={onOpenChange} author={props.author}
+        title={props.title} synopsis={props.synopsis} image={props.image} themes={props.themes}
+        status={props.status} genres={props.genres} rating={props.rating}
+      />
+
+    </>
   )
 }
