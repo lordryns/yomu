@@ -10,6 +10,7 @@ import MangaCard from './components/mangacard.tsx'
 
 import { getMangaList, searchManga } from './manga.ts'
 
+import InstallPrompt from './components/installapp.tsx'
 
 interface Manga {
   title: string, 
@@ -155,6 +156,7 @@ function App() {
   
   return (
       <>
+      <InstallPrompt />
       <div className="min-h-screen">
       <Navbar maxWidth="xl">
         <NavbarBrand>
