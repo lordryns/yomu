@@ -22,9 +22,9 @@ export default function MangaModal(props: any) {
                   {props.synopsis}
                   <b>Rating: {props.rating}</b>
                   <b>Status: {props.status}</b>
-                  <b>Genres: {props.genres.map(genre: any => genre.name).join(', ')}</b>
+                  <b>Genres: {props.genres.map((genre: any) => genre.name).join(', ')}</b>
                   <b>Author: {props.author}</b>
-                  <b>Themes: {props.themes.map(theme: any => theme.name).join(', ')}</b>
+                  <b>Themes: {props.themes.map((theme: any) => theme.name).join(', ')}</b>
                 </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
